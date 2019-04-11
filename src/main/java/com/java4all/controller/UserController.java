@@ -6,11 +6,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  * @author wangzhongxiang
- * @date 2019年04月11日 09:19:22
+ * @date 2019年01月11日 01:19:22
  */
 @RestController
 @RequestMapping(value = "user")
-public class UserControllser {
+public class UserController {
 
     /**
      * web启动测试
