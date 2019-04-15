@@ -1,5 +1,6 @@
 package com.java4all.entity;
 
+import java.util.Date;
 import lombok.Data;
 
 /**
@@ -26,7 +27,7 @@ public class Company {
     private String legalPersonName;
 
     /**
-     * 联系人手机号码
+     * 法人手机号码
      */
     private String phone;
 
@@ -39,5 +40,33 @@ public class Company {
      * 1.食品行业 2.农业 3.互联网 4.出版行业
      */
     private Integer type;
+
+    /**
+     * 水果id 每周福利
+     */
+    private Integer fruitId;
+
+    /**
+     * 是否996 true
+     * 是996，false 不是996
+     */
+    private boolean whether996;
+
+    /**
+     * 创建时间
+     */
+    private Date gmtCreate;
+
+    /**
+     * 修改时间
+     */
+    private Date gmtModified;
+
+    /**
+     * true 已被删除，无效数据
+     * false 未被删除，有效数据
+     */
+    private boolean deleted;
+
 
 }
