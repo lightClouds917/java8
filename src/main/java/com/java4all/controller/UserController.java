@@ -1,5 +1,7 @@
 package com.java4all.controller;
 
+import com.java4all.entity.User;
+import java.util.List;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,8 +18,18 @@ public class UserController {
      * web启动测试
      * @return
      */
-    @GetMapping(value = "test1")
-    public String test1(){
+    @GetMapping(value = "test")
+    public String test(){
         return "Hello,IT云清,It is ok !";
+    }
+
+
+    public static void main(String[]args){
+
+    }
+
+    public static void test1(){
+        List<User> users = User.initUser();
+
     }
 }
