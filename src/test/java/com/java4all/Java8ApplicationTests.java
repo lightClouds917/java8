@@ -13,4 +13,9 @@ public class Java8ApplicationTests {
 	public void contextLoads() {
 	}
 
+	@Test
+	public void test(){
+
+	}
+
 }
