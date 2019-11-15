@@ -1,5 +1,6 @@
 package com.java4all;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -25,20 +26,20 @@ public class ListTest {
     
     @Test
     public void test(){
-        Map<String,Object> result = new HashMap<>();
         List<Map<String, Object>> list = this.initData();
-
         Map<String, List<Map<String, Object>>> mlm = list.stream()
-                .collect((Collectors.groupingBy(map -> map.get("name").toString())));
-        System.out.println(mlm);
-
-        Set<String> keys = list.get(0).keySet();
-        boolean name = keys.remove("name");
-        //
-        keys.stream().forEach(key-> result.put(key,list.stream().mapToInt(map -> Integer.valueOf(map.get(key).toString())).sum()));
-        result.put("name","张三");
-        System.out.println(result.toString());
-
+                .collect((Collectors.groupingBy(map -> map.get(SKIP_KEY).toString())));
+        List<Map<String,Object>> listRe = new ArrayList<>();
+        mlm.forEach((s, maps) -> {
+             Map<String, Object> re = new HashMap<>(4);
+            re.put(SKIP_KEY,s.toString());
+            Set<String> keys = maps.get(0).keySet();
+            keys.remove(SKIP_KEY);
+            keys.stream().forEach(key->re.put(key,maps.stream().mapToInt(map->Integer.valueOf(map.get(key).toString())).sum()));
+            listRe.add(re);
+        });
+        System.out.println("以下为结果");
+        listRe.stream().forEach(map -> System.out.println(map.toString()));
     }
 
     public List<Map<String,Object>> initData(){
@@ -63,7 +64,8 @@ public class ListTest {
         map4.put("amount",20);
 
         List<Map<String, Object>> maps = Arrays.asList(map1, map2,map3,map4);
-        System.out.println("init data:"+maps.toString());
+        System.out.println(maps.toString());
+        System.out.println("以上为原始数据");
         return maps;
     }
 
