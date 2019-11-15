@@ -21,17 +21,18 @@ import org.springframework.test.context.junit4.SpringRunner;
 @SpringBootTest
 public class ListTest {
 
+
+    /**You can specify a key to groupby*/
     private final String SKIP_KEY = "name";
 
-    
     @Test
     public void test(){
         List<Map<String, Object>> list = this.initData();
-        Map<String, List<Map<String, Object>>> mlm = list.stream()
-                .collect((Collectors.groupingBy(map -> map.get(SKIP_KEY).toString())));
+        Map<String, List<Map<String, Object>>> mlm =
+                list.stream().collect((Collectors.groupingBy(map -> map.get(SKIP_KEY).toString())));
         List<Map<String,Object>> listRe = new ArrayList<>();
         mlm.forEach((s, maps) -> {
-             Map<String, Object> re = new HashMap<>(4);
+            Map<String, Object> re = new HashMap<>(4);
             re.put(SKIP_KEY,s.toString());
             Set<String> keys = maps.get(0).keySet();
             keys.remove(SKIP_KEY);
