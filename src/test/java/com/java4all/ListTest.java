@@ -68,32 +68,4 @@ public class ListTest {
         System.out.println("以上为原始数据");
         return maps;
     }
-
-    @Test
-    public void test2(){
-        String [] array = {"hello","love","me"};
-
-        List<Integer> integers = Arrays.asList(1, 2, 3, 4, 5);
-        List<Integer> collect = integers.stream().map(n -> n * n).collect(Collectors.toList());
-        System.out.println(collect.toString());
-
-        List<Integer> integers1 = Arrays.asList(1, 2, 3);
-        List<Integer> integers2 = Arrays.asList(4,5);
-
-//        List<Stream<int[]>> collect1 = integers1.stream()
-//                .map(i -> integers2.stream().map(j -> new int[]{i, j}))
-//                .collect(Collectors.toList());
-//
-//        collect1.stream().forEach(s->System.out.println(Arrays.toString(s.toArray())));
-        
-        System.out.println("-------------");
-
-        List<int[]> collect2 = integers1.stream()
-                .flatMap(i -> integers2.stream().map(j -> new int[]{i, j}))
-                .collect(Collectors.toList());
-        collect2.stream().forEach(ss->System.out.println(Arrays.toString(ss)));
-
-
-
-    }
 }
