@@ -1,8 +1,10 @@
 package com.java4all;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -67,5 +69,23 @@ public class ListTest {
         System.out.println(maps.toString());
         System.out.println("以上为原始数据");
         return maps;
+    }
+
+    @Test
+    public void a(){
+        int dayOfMonth = LocalDate.now().getDayOfMonth();
+        System.out.println(dayOfMonth);
+
+        List<Integer>list = new ArrayList<>();
+        list.add(1);
+        list.add(2);
+        list.add(3);
+        list.add(4);
+        System.out.println(list);
+        LinkedList<Integer> integers = new LinkedList<>(list);
+        System.out.println(integers);
+        integers.addFirst(8);
+        System.out.println(integers);
+
     }
 }
