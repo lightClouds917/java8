@@ -1,13 +1,9 @@
 package com.java4all;
 
-
-import com.java4all.entity.Company;
-import com.java4all.entity.User;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.Function;
-import javax.jws.soap.SOAPBinding.Use;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
