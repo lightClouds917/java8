@@ -1,0 +1,40 @@
+package rules
+
+import com.java4all.mydrools.Customer
+import com.java4all.mydrools.MyDrools
+global  java.util.ArrayList newCustomer;
+
+rule "add100" //规则名称，需要保持唯一 件,可以无限次执行。
+    no-loop true //定义当前的规则是否不允许多次循环执行,默认是 false,也就是当前的规则只要满足条件,可以无限次执行
+    lock-on-active true  //将lock-on-active属性的值设置为true,可避免因某些Fact对象被修改而使已经执行过的规则再次被激活执行。
+    salience 1 //用来设置规则执行的优先级,salience 属性的值是一个数字,数字越大执行优先级越高, 同时它的值可以是一个负数。默认情况下,规则的 salience 默认值为 0。如果不设置规则的 salience 属性,那么执行顺序是随机的。
+    when //条件语句，就是当到达什么条件的时候
+        $s : Customer(age <= 40 && height > 100) //如果年龄小于等于100，将此Customer赋值$s
+    then //根据条件的结果，来执行什么动作
+        $s.setMoney(100); //设置改用户的money为0
+        newCustomer.add($s);
+//        MyDrools.addMoney($s);
+end //规则结束
+
+rule "add200"
+    no-loop true
+    lock-on-active true
+    salience 1
+    when
+        $s : Customer(age > 40 && height <= 200)
+    then
+        $s.setMoney(200);
+//        MyDrools.addMoney($s);
+end
+
+rule "add300"
+    no-loop true
+    lock-on-active true
+    salience 1
+    when
+        $s : Customer(age > 40 && height > 200)
+    then
+        $s.setMoney(300);
+//        MyDrools.addMoney($s);
+end
+
