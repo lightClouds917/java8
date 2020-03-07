@@ -2,7 +2,7 @@
 <kmodule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xmlns="http://www.drools.org/xsd/kmodule">
 
-  <kbase name="point-rulesKB" packages="rules">
+  <kbase name="point-rulesKB" packages="mydrool">
     <ksession name="point-rulesKS"/>
   </kbase>
 

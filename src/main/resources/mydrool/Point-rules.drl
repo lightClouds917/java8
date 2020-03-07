@@ -1,8 +1,12 @@
-package rules
+package mydrool
 
-import com.java4all.mydrools.Customer
-import com.java4all.mydrools.MyDrools
+import java.util.List;
+import com.java4all.mydrools.Customer;
+import com.java4all.mydrools.MyDrools;
 global  java.util.ArrayList newCustomer;
+
+
+
 
 rule "add100" //规则名称，需要保持唯一 件,可以无限次执行。
     no-loop true //定义当前的规则是否不允许多次循环执行,默认是 false,也就是当前的规则只要满足条件,可以无限次执行
@@ -13,7 +17,6 @@ rule "add100" //规则名称，需要保持唯一 件,可以无限次执行。
     then //根据条件的结果，来执行什么动作
         $s.setMoney(100); //设置改用户的money为0
         newCustomer.add($s);
-//        MyDrools.addMoney($s);
 end //规则结束
 
 rule "add200"

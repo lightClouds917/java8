@@ -39,18 +39,13 @@ public class MyDrools {
 
     }
 
-    public static void addMoney(Customer customer){
-        System.out.println(customer.toString());
-    }
-
-
-
 
     public static List<Customer> initData(){
         Customer customer1 = new Customer(10, 150, 0);
         Customer customer2 = new Customer(50, 110, 0);
         Customer customer3 = new Customer(50, 300, 0);
-        List<Customer> customers = Arrays.asList(customer1, customer2, customer3);
+        Customer customer4 = new Customer(20, 300, 0);
+        List<Customer> customers = Arrays.asList(customer1, customer2, customer3,customer4);
         return customers;
 
     }
