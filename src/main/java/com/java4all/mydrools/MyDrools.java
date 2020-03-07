@@ -30,10 +30,8 @@ public class MyDrools {
         List<Customer> customers = initData();
         customers.stream().forEach(customer -> {
             System.out.println(customer);
-            System.out.println("--------------------");
             kieSession.insert(customer);
             kieSession.fireAllRules();
-            System.out.println("--------test");
         });
         kieSession.dispose();
 
@@ -41,10 +39,10 @@ public class MyDrools {
 
 
     public static List<Customer> initData(){
-        Customer customer1 = new Customer(10, 150, 0);
-        Customer customer2 = new Customer(50, 110, 0);
-        Customer customer3 = new Customer(50, 300, 0);
-        Customer customer4 = new Customer(20, 300, 0);
+        Customer customer1 = new Customer(10, 150, 0,"rich");
+        Customer customer2 = new Customer(50, 110, 0,"rich");
+        Customer customer3 = new Customer(50, 300, 0,"rich");
+        Customer customer4 = new Customer(20, 300, 0,"rich");
         List<Customer> customers = Arrays.asList(customer1, customer2, customer3,customer4);
         return customers;
 

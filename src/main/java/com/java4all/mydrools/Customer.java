@@ -12,12 +12,13 @@ public class Customer {
 
     private Integer money;
 
-    public Integer getHeight() {
-        return height;
-    }
+    private String des;
 
-    public void setHeight(Integer height) {
+    public Customer(Integer age, Integer height, Integer money, String des) {
+        this.age = age;
         this.height = height;
+        this.money = money;
+        this.des = des;
     }
 
     public Integer getAge() {
@@ -28,6 +29,14 @@ public class Customer {
         this.age = age;
     }
 
+    public Integer getHeight() {
+        return height;
+    }
+
+    public void setHeight(Integer height) {
+        this.height = height;
+    }
+
     public Integer getMoney() {
         return money;
     }
@@ -36,10 +45,12 @@ public class Customer {
         this.money = money;
     }
 
-    public Customer(Integer age, Integer height, Integer money) {
-        this.age = age;
-        this.height = height;
-        this.money = money;
+    public String getDes() {
+        return des;
+    }
+
+    public void setDes(String des) {
+        this.des = des;
     }
 
     @Override
@@ -48,6 +59,8 @@ public class Customer {
                 "age=" + age +
                 ", height=" + height +
                 ", money=" + money +
+                ", des='" + des + '\'' +
                 '}';
     }
 }
+

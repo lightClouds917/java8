@@ -1,6 +1,7 @@
 package mydrool
 
 import java.util.List;
+import java.lang.String;
 import com.java4all.mydrools.Customer;
 import com.java4all.mydrools.MyDrools;
 global  java.util.ArrayList newCustomer;
@@ -17,7 +18,20 @@ rule "add100" //规则名称，需要保持唯一 件,可以无限次执行。
     then //根据条件的结果，来执行什么动作
         $s.setMoney(100); //设置改用户的money为0
         newCustomer.add($s);
-end //规则结束
+    end //规则结束
+
+//rule "add101"
+//  no-loop true
+//  lock-on-active true
+//  salience 10
+//  when
+//      $s : Customer(age <= 40 && height > 10)
+//  then
+//      $s.setMoney(101);
+//      $s.setAge(1111);
+//      $s.setDes("poor");
+//      newCustomer.add($s);
+//   end
 
 rule "add200"
     no-loop true
@@ -27,8 +41,7 @@ rule "add200"
         $s : Customer(age > 40 && height <= 200)
     then
         $s.setMoney(200);
-//        MyDrools.addMoney($s);
-end
+    end
 
 rule "add300"
     no-loop true
@@ -38,6 +51,5 @@ rule "add300"
         $s : Customer(age > 40 && height > 200)
     then
         $s.setMoney(300);
-//        MyDrools.addMoney($s);
-end
+    end
 
